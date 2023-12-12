@@ -6,10 +6,11 @@ use App\Entity\Tasks;
 use App\Form\TasksType;
 use App\Repository\TasksRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/tasks')]
 class TasksController extends AbstractController
@@ -21,7 +22,8 @@ class TasksController extends AbstractController
             'tasks' => $tasksRepository->findAll(),
         ]);
     }
-
+    
+    #[IsGranted('ROLE_USER')]
     #[Route('/new', name: 'app_tasks_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -50,6 +52,7 @@ class TasksController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/{id}/edit', name: 'app_tasks_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Tasks $task, EntityManagerInterface $entityManager): Response
     {

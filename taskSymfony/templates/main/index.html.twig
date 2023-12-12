@@ -1,20 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Hello Exo 1 - CDA
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<div class="example-wrapper">
+		<h1>Hello
+			{{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/RICHMOND/Documents/GitHub/CDA1/taskSymfony/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/RICHMOND/Documents/GitHub/CDA1/taskSymfony/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
-</div>
+		What you have to Do ?
+	</div>
+
+		<section class="container-fluid">
+			<div class="row">
+				{% for task in tasks %}
+					<div class="col-md-4">
+						<div class="card" style="width: 18rem;">
+							<img src="https://picsum.photos/seed/picsum/200/300" class="card-img-top" alt="Lorem Piscum">
+							<div class="card-body">
+								<h5 class="card-title">{{ task.title }}</h5>
+								<p class="card-text">
+									{{ task.description }}
+								</p>
+								<a href="{{ path('app_tasks_show', {'id': task.id}) }}">show</a>
+								<a href="{{ path('app_tasks_edit', {'id': task.id}) }}">edit</a>
+							</div>
+						</div>
+					</div>
+				{% else %}
+					<p>no records found</p>
+				{% endfor %}
+			</div>
+		</section>
 {% endblock %}

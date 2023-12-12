@@ -13,8 +13,6 @@
                 <th>Description</th>
                 <th>DueDate</th>
                 <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>IsCompleted</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,8 +24,6 @@
                 <td>{{ task.description }}</td>
                 <td>{{ task.dueDate ? task.dueDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ task.createdAt ? task.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ task.updatedAt ? task.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ task.isCompleted ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('app_tasks_show', {'id': task.id}) }}">show</a>
                     <a href="{{ path('app_tasks_edit', {'id': task.id}) }}">edit</a>

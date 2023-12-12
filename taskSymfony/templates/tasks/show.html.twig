@@ -7,10 +7,10 @@
 
     <table class="table">
         <tbody>
-            <tr>
+            {# <tr>
                 <th>Id</th>
                 <td>{{ task.id }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>Title</th>
                 <td>{{ task.title }}</td>
@@ -27,14 +27,14 @@
                 <th>CreatedAt</th>
                 <td>{{ task.createdAt ? task.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
-            <tr>
+            {# <tr>
                 <th>UpdatedAt</th>
                 <td>{{ task.updatedAt ? task.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
                 <th>IsCompleted</th>
                 <td>{{ task.isCompleted ? 'Yes' : 'No' }}</td>
-            </tr>
+            </tr> #}
         </tbody>
     </table>
 

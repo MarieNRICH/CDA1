@@ -26,11 +26,11 @@ class Tasks
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $updatedAt = null;
+    // #[ORM\Column]
+    // private ?\DateTimeImmutable $updatedAt = null;
 
-    #[ORM\Column]
-    private ?bool $isCompleted = null;
+    // #[ORM\Column]
+    // private ?bool;
 
     public function getId(): ?int
     {
@@ -85,27 +85,27 @@ class Tasks
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
-    {
-        return $this->updatedAt;
-    }
+    // public function getUpdatedAt(): ?\DateTimeImmutable
+    // {
+    //     return $this->updatedAt;
+    // }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
-    {
-        $this->updatedAt = $updatedAt;
+    // public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
+    // {
+    //     $this->updatedAt = $updatedAt;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function isIsCompleted(): ?bool
-    {
-        return $this->isCompleted;
-    }
+    // public function isIsCompleted(): ?bool
+    // {
+    //     return $this->isCompleted;
+    // }
 
-    public function setIsCompleted(bool $isCompleted): static
-    {
-        $this->isCompleted = $isCompleted;
+    // public function setIsCompleted(bool $isCompleted): static
+    // {
+    //     $this->isCompleted = $isCompleted;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }
